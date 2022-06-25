@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
 body{
-  background-image: radial-gradient(circle at 52% 94%, rgba(144, 27, 27, 0.04) 0%, rgba(187, 104, 104, 0.04) 50%,rgba(199, 199, 199,0.04) 50%, rgba(199, 199, 199,0.04) 100%),radial-gradient(circle at 96% 98%, rgba(61, 61, 61,0.04) 0%, rgba(61, 61, 61,0.04) 50%,rgba(201, 201, 201,0.04) 50%, rgba(201, 201, 201,0.04) 100%),radial-gradient(circle at 93% 97%, rgba(227, 227, 227,0.04) 0%, rgba(227, 227, 227,0.04) 50%,rgba(145, 145, 145,0.04) 50%, rgba(145, 145, 145,0.04) 100%),radial-gradient(circle at 79% 52%, rgba(245, 245, 245,0.04) 0%, rgba(245, 245, 245,0.04) 50%,rgba(86, 86, 86,0.04) 50%, rgba(86, 86, 86,0.04) 100%),linear-gradient(90deg, rgb(210, 9, 198),rgb(25, 38, 118));
+  background-image: radial-gradient(circle at 52% 94%, rgba(215, 212, 212, 0.04) 0%, rgba(187, 104, 104, 0.04) 50%,rgba(199, 199, 199,0.04) 50%, rgba(199, 199, 199,0.04) 100%),radial-gradient(circle at 96% 98%, rgba(61, 61, 61,0.04) 0%, rgba(61, 61, 61,0.04) 50%,rgba(201, 201, 201,0.04) 50%, rgba(201, 201, 201,0.04) 100%),radial-gradient(circle at 93% 97%, rgba(227, 227, 227,0.04) 0%, rgba(227, 227, 227,0.04) 50%,rgba(145, 145, 145,0.04) 50%, rgba(145, 145, 145,0.04) 100%),radial-gradient(circle at 79% 52%, rgba(245, 245, 245,0.04) 0%, rgba(245, 245, 245,0.04) 50%,rgba(86, 86, 86,0.04) 50%, rgba(86, 86, 86,0.04) 100%),linear-gradient(90deg, rgb(210, 9, 198),rgb(25, 38, 118));
 }
 *{
   margin:0;
@@ -11,6 +11,10 @@ body{
 h2{
   font-size: 2rem;
 }
+.head{
+background-color: rgb(26, 60, 85);
+padding: 10px;
+}
 form{
   display:grid;
   grid-template-columns:72% 25%;
@@ -19,7 +23,7 @@ form{
 
 .container{
   width: 50%;;
-  background-color: #77ACF1;
+  background-color: #5d7391;
   margin: 5rem auto;
   padding: 2rem;
   border-radius: 10px;

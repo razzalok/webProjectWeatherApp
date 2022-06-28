@@ -1,5 +1,6 @@
 from email import message
 from django.shortcuts import render
+from numpy import NaN
 import requests
 import datetime
 
@@ -22,19 +23,23 @@ def index(request):
     URL = 'https://api.openweathermap.org/data/2.5/weather'
     PARAMS = {'q': city, 'appid': appid, 'units': 'metric'}
     r = requests.get(url=URL, params=PARAMS)
-    res = r.json()
-    description = res['weather'][0]['description']
-    icon = res['weather'][0]['icon']
-    temp = res['main']['temp']
-    pressure = res['main']['pressure']
-    humidity = res['main']['humidity']
-    clouds = res['clouds']['all']
-    country = res['sys']['country']
-    lon = res['coord']['lon']
-    lat = res['coord']['lat']
-    day = datetime.date.today()
+    if r.status_code == 404:
+        return render(request, 'weatherApp/index.html', {'description': "No Data Found", 'icon': "NaN", 'temp': "NaN", 'day': "NaN", 'city': "", 'pressure': "NaN", 'humidity': "NaN", 'clouds': "Nan", 'country': "NaN"})
+    else:
+        res = r.json()
 
-    return render(request, 'weatherApp/index.html', {'description': description, 'icon': icon, 'temp': temp, 'day': day, 'city': city, 'pressure': pressure, 'humidity': humidity, 'clouds': clouds, 'country': country})
+        description = res['weather'][0]['description']
+        icon = res['weather'][0]['icon']
+        temp = res['main']['temp']
+        pressure = res['main']['pressure']
+        humidity = res['main']['humidity']
+        clouds = res['clouds']['all']
+        country = res['sys']['country']
+        lon = res['coord']['lon']
+        lat = res['coord']['lat']
+        day = datetime.date.today()
+
+        return render(request, 'weatherApp/index.html', {'description': description, 'icon': icon, 'temp': temp, 'day': day, 'city': city, 'pressure': pressure, 'humidity': humidity, 'clouds': clouds, 'country': country})
 
 
 # def dayFive(request):
@@ -43,7 +48,7 @@ def index(request):
 #     PARAMS = {'lat': lat, 'lon': lon, 'cnt': 5,
 #               'appid': appid, 'units': 'metric'}
 #     r = requests.get(url=URL, params=PARAMS)
-#     res = r.json()
+#     res = r.json()0
 #     citys = res['city']['name']
 #     temp = res['list'][0]['main']['temp']
 #     return render(request, 'weatherApp/Day5.html', {'citys': citys, 'temp': temp})
